@@ -22,7 +22,7 @@ async function deleteTrack(name, sha, el) {
     body: JSON.stringify({ message: `Delete ${name}`, sha })
   });
   if (res.ok) showNotification(`Файл ${name} удалён`, true), el.remove();
-  else showNotification('В тестовом режиме (в котором вы сейчас находитесь) нельзвя удалять музыку, для этого привяжите токен в своем проекте.', false);
+  else showNotification('В текущем тестовом режиме вы не можете удалять музыку. Чтобы разрешить удаление, привяжите свой токен GitHub в проекте.', false);
 }
 
 function showNotification(text, success) {
