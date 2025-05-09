@@ -22,7 +22,7 @@ async function deleteTrack(name, sha, el) {
     body: JSON.stringify({ message: `Delete ${name}`, sha })
   });
   if (res.ok) showNotification(`Файл ${name} удалён`, true), el.remove();
-  else showNotification('Ошибка удаления', false);
+  else showNotification('В тестовом режиме (в котором вы сейчас находитесь) нельзвя удалять музыку, для этого привяжите токен в своем проекте.', false);
 }
 
 function showNotification(text, success) {
@@ -32,7 +32,7 @@ function showNotification(text, success) {
   note.innerHTML = `<p>${text}</p><button class="close">&times;</button>`;
   area.append(note);
   note.querySelector('.close').addEventListener('click', () => note.remove());
-  setTimeout(() => note.remove(), 4000); // убирается через 4сек
+  setTimeout(() => note.remove(), 10000); // уведомление убирается через 10сек
 }
 
 function createTrackCard(track) {
